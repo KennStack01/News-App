@@ -17,7 +17,7 @@ const Blog = ({ image, title, description, link, date, author }) => {
           {dateToFormat}
         </Moment>
       </p>
-      <a href={link}>
+      <a href={link} target="__blank">
         <h1 className="text-xl md:text-2xl font-bold hover:text-blue-900">
           {" "}
           {title}{" "}
@@ -28,6 +28,7 @@ const Blog = ({ image, title, description, link, date, author }) => {
 
         <a
           href={link}
+          target="__blank"
           className="flex flex-row justify-end text-right -mt-1 hover:underline"
         >
           <p className="my-auto font-semibold">Open</p>
