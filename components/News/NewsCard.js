@@ -2,10 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
 import Moment from "react-moment";
-import "moment/locale/fr";
+import "moment/locale/en-ca";
 
-Moment.globalLocale = "fr";
-const Blog = ({ image, title, description, link, date }) => {
+Moment.globalLocale = "en";
+const Blog = ({ image, title, description, link, date, author }) => {
   const dateToFormat = date;
 
   return (
@@ -13,12 +13,12 @@ const Blog = ({ image, title, description, link, date }) => {
       <img src={image} alt={title} className="bg-cover rounded-lg" />
       <p className="text-xs text-gray-600 text-left">
         {" "}
-        <Moment format="DD MMMM YYYY" className="capitalize font-semibold">
+        <Moment format="MMMM DD, YYYY" className="capitalize font-semibold">
           {dateToFormat}
         </Moment>
       </p>
       <a href={link}>
-        <h1 className="text-xl md:text-2xl font-bold hover:text-light-pink-500">
+        <h1 className="text-xl md:text-2xl font-bold hover:text-blue-900">
           {" "}
           {title}{" "}
         </h1>

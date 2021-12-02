@@ -5,7 +5,7 @@ import NewsList from "../components/News/NewsList";
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 export default function Home({ newsList }) {
-  console.log(newsList);
+  // console.log(newsList);
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Home({ newsList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <NewsList newsList={newsList} /> */}
+      <NewsList newsList={newsList} />
     </div>
   );
 }
@@ -22,7 +22,7 @@ export default function Home({ newsList }) {
 export async function getStaticProps() {
   try {
     const newsList = await fetch(`
-https://newsapi.org/v2/everything?q=tesla&from=2021-11-02&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`).then(
+https://newsapi.org/v2/everything?q=tesla&from=2021-11-02&sortBy=publishedAt&sources?country=us&language=en&apiKey=${NEWS_API_KEY}`).then(
       (res) => res.json()
     );
     //     const newsList = await fetch(`

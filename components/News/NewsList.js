@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
+import NewestBanner from "./Newest/NewestBanner";
 import News from "./NewsCard";
-
-const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 const NewsList = ({ newsList }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    console.log(newsList);
-  }, []);
+  console.log(newsList);
 
   return (
     <div className="flex flex-col">
+      <div className="flex flex-col text-gray-800">
+        <h1 className="font-bold text-center text-4xl md:text-6xl">
+          Welcome to Tesla News
+        </h1>
+        <p className="text-center text-md md:text-md mx-auto my-7 md:w-1/2">
+          Every code that you write needs design. The amount of time you will
+          spend creating the software design depends on the complexity of the
+          system and your familiarity with the system.
+        </p>
+      </div>
+      <NewestBanner
+        key={newsList.articles[0].url}
+        title={newsList.articles[0].title}
+        image={newsList.articles[0].urlToImage}
+        date={newsList.articles[0].publishedAt}
+        author={newsList.articles[0].author}
+        description={newsList.articles[0].description}
+        link={newsList.articles[0].url}
+      />
       <div className="mx-auto w-3/4 lg:w-1/2">
         <input
           type="text"
@@ -21,8 +37,8 @@ const NewsList = ({ newsList }) => {
           className="px-3 py-2 sticky top-0 placeholder-gray-400 text-blueGray-600 bg-white rounded-sm text-sm outline-none focus:outline-none focus:ring-2 ring-1 ring-gray-400 focus:ring-helloblue-400 w-full"
         />
       </div>
-      {/* <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 place-content-center md:mx-auto">
-        {newsList
+      <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 place-content-center md:mx-auto">
+        {newsList.articles
           .filter((post) => {
             if (searchTerm === "") {
               return post;
@@ -39,18 +55,17 @@ const NewsList = ({ newsList }) => {
             }
           })
           .map((post) => (
-            <p>Test</p>
-            // <News
-            //   key={post.slug}
-            //   title={post.title}
-            //   image={post.blogCoverImage.url}
-            //   date={post.date}
-            //   author={post.author}
-            //   description={post.shortDescription}
-            //   slug={post.slug}
-            // />
+            <News
+              key={post.url}
+              title={post.title}
+              image={post.urlToImage}
+              date={post.publishedAt}
+              author={post.author}
+              description={post.description}
+              link={post.url}
+            />
           ))}
-      </div> */}
+      </div>
     </div>
   );
 };

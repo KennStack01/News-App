@@ -6,7 +6,7 @@ export default function Header() {
       <div className="flex flex-row justify-between mx-2 md:mx-4">
         <div className="flex items-center mx-auto">
           <Link href="/">
-            <a className="text-2xl md:text-4xl font-bold">Tech News</a>
+            <a className="text-2xl md:text-4xl font-bold">Tesla News</a>
           </Link>
         </div>
       </div>
