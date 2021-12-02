@@ -5,7 +5,7 @@ import News from "./NewsCard";
 const NewsList = ({ newsList }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log(newsList);
+  // console.log(newsList);
 
   return (
     <div className="flex flex-col">
